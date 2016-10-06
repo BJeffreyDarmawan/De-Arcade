@@ -1,0 +1,31 @@
+How it works?
+
+Player insert username [Record or recall data] 
+Player choose game
+Player insert credit to be used [bet]
+[Gameplay explained] 
+Player get reward [System combine credit and reward]
+Ask player to play again or play other game or quit
+[Repeat, until the player quits]
+System record latest balance [System store data]
+
+
+What do I need to make this project?
+
+Login system:
+Requires the program to input and output file system to store informations like username, password(?) 
+and remaining credit. This also requires a identification system whether the username is already recorded or not.[search]
+
+Choose game or play again:
+Switch-case I suppose.. also, loop
+
+Gameplay:
+I need to provide a really random chosen combination 
+If conditions [correct or not]
+Loop [try again, try again, try again till correct]
+
+Others:
+cin, cout, clear(?), quit(?), functions
+
+
+ 
