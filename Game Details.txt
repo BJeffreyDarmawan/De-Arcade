@@ -1,0 +1,15 @@
+Game Details
+
+'GUESS THE NUMBER'
+Player chooses whether they want to guess a 1- or 2- or 3-digit number.
+Player will input any number. Player must guess consecutively [berurutan] 1->2->3.
+[For 2 or 3 digit number]
+If the player guessed a correct number in any possition, the game will tell him or her whether the guessed 
+number is at the correct possition or not. For example, the number is [392], if I guessed 4, I'll have to guess 
+with other number and the game will tell me that the number does not exist in the combination. 
+Then I guess 9, the game will tell me that the number exist in the combination but not at the right possition.
+And I have to try until I guessed the correct combination.
+
+SLOTS
+Like common slots, there are 3 slots. Player push the lever, and the slots start rolling. Player has to hit the
+button to stop each slot. Player wins when he or she aquires a certain combination of the result. 
