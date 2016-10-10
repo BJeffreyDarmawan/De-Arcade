@@ -13,3 +13,10 @@ And I have to try until I guessed the correct combination.
 SLOTS
 Like common slots, there are 3 slots. Player push the lever, and the slots start rolling. Player has to hit the
 button to stop each slot. Player wins when he or she aquires a certain combination of the result. 
+Slots game is pretty different than the other game. We can’t give jackpot (high-rewarding output) with the same chance with low-rewarding output. 
+Jackpot occurrence would be as small as possible with something like:
+•	Jackpot will occur with only 15% gross chance
+•	Jackpot will not occur by 80% of chance
+•	So, Jackpot might occur with <15% chance (theoretically)
+*and vice versa for the low-rewarding output.
+
