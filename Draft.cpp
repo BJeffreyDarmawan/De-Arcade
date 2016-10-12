@@ -8,14 +8,15 @@
 
 
 #include <iostream>
-
+#include <ctime>
+#include <cstdlib>
 using namespace std;
 
 
 
 
 
-
+string userName;
 char userInput;
 
 int main()
@@ -58,8 +59,8 @@ void defaultInterface()
 
 
 
-
-void chooseGame () //I haven't decided the function type
+//I haven't decided the functions types
+void chooseGame () 
 {
 
 /*
@@ -112,6 +113,64 @@ void logIn()
 	*/
 }
 
+
+void gameGuessTheNumber()
+{
+	
+	/*
+	srand(time(NULL));
+	int num1 = 0, num2 = 0, num3 = 0;
+	bool condition = 0;
+	
+	//each digit can't be same as the other
+	while (num1 == num2 || num2 == num3 || num1 == num3)
+	{
+		num1 = rand() % 10; //one digit random number
+		num2 = rand() % 10;
+		num3 = rand() % 10;
+	}
+	
+	while (condition)
+	{	
+		cout << "Please guess the first digit : "; cin >> digit1;
+		if (digit1 == num1)
+		{
+			condition = 1;
+		}
+	
+	}
+	
+	condition = 0;
+	while (condition)
+	{	
+		cout << "Please guess the second digit : "; cin >> digit2;
+		if (digit2 == num2)
+		{
+			condition = 1;
+		}
+	
+	}
+	
+	condition = 0;	
+	while (condition)
+	{	
+		cout << "Please guess the third digit : "; cin >> digit2;
+		if (digit3 == num3)
+		{
+			condition = 1;
+		}
+	
+	}
+	
+	cout << "Congratulations, you guessed the right number! " << endl;
+	cout << "Here is your reward : " << reward << endl;
+	
+	
+	*/
+	
+	
+	
+}
 
 
 
