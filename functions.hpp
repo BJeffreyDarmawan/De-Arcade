@@ -1,3 +1,5 @@
+#incude<iostream>
+
 #include "declare.hpp"
 
 void defaultInterface()
@@ -6,6 +8,8 @@ void defaultInterface()
 	cout << "You will experience tons of happiness" << endl;
 	cout << "      by playing fun games here      " << endl;
 	cout << "This game is made by Jeffrey Darmawan" << endl;
+	cout << "-------------------------------------" << endl;
+	cout << endl;
 	
 }
 
@@ -51,8 +55,40 @@ void chooseGame ()
 void log_In()
 {
 	
-//	cout << "Enter username "; cin >> userName;
+	cout << "Enter username "; cin >> userName;
 	
+	string temp;
+	int igCurrency;
+	ifstream fileIn;
+	fileIn.open("Database.txt");
+	
+	while(fileIn >> temp)
+	{
+		if(temp == userName)
+		{
+			
+			fileIn >> igCurrency;
+			fileIn.close();
+			break;
+		}
+	}
+	
+	
+	
+	
+/*	
+	while(fileIn >> temp)
+    {
+        if(strTemp == strReplace){
+            strTemp = strNew;
+            //found = true;
+        }
+        strTemp += "\n";
+        fileout << strTemp;
+        //if(found) break;
+    }
+	
+*/	
 //	ifstream inputFile;
 //	inputFile.open("Records.txt");
 	/*
@@ -175,6 +211,67 @@ void gameSlots()
 {
 	
 	
+
+	srand(time(NULL));
+	int slot[3] = {rand() % 100, rand() % 100, rand() % 100};
+	int slot1, slot2, slot3;
+	slot1 = rand() % 100;
+	slot2 = rand() % 100;
+	slot3 = rand() % 100;	
+	int result1, result2, result3;
+	int result[3];
+	
+	
+	//assume the common chances of the slots are: 10%, 30%, 30%, and 30%
+	for (int i = 0; i <=2; i++)
+	{
+		if (slot[i] >=0 && slot[i] <= 10)
+		{
+			result[i] = 7;
+			cout << " " << result[i]<< " | ";
+		}
+		else if (slot[i] > 10 && slot[i] <=39)
+		{
+			result[i] = 1;
+			cout << " " << result[i]<< " | ";
+		}
+		else if (slot[i] > 40 && slot[i] <=69)
+		{
+			result[i] = 2;
+			cout << " " << result[i]<< " | ";
+		}
+		else if (slot[i] > 70 && slot[i] <=99)
+		{
+			result[i] = 3;
+			cout << " " << result[i]<< " | ";
+		}
+	}
+		
+		
+		
+/*	
+	//can change into looped ifs
+	if (slot1 >= 0 && slot1 <= 10)
+	{
+		result1 = 7;
+		cout << " " << result1<< " | ";
+		slot2 += 1;
+		if (slot2 >= 0 && slot2 <= 10)
+		{
+			result2 = 7;
+			cout << " " << result2<< " | ";
+			slot3 += 2;
+			if (slot3 >= 0 && slot3 <= 10)
+			{
+				result2 = 7;
+				cout << " " << result2<< " | ";
+			}
+			else if 
+		}
+	}
+	else if (
+				
+*/	
 	
 }
 
