@@ -13,6 +13,7 @@ using namespace std;
 	//string *temporaryAllFile = new string [0];
 	int i = 0; //total number of lines on the txt file
 
+//a class that temporarily stores the data of the player
 class UserData{
 	private:
 		string userName;
@@ -70,7 +71,14 @@ class UserData{
 			}
 			fileOp.close();
 		}
-	
+		void checkIGC()
+		{
+			cout << "In-game currency: " << igCurrency << endl;
+		}
+		void checkUserName()
+		{
+			cout << "UserName: " << userName << endl;
+		}
 	
 };
 	
@@ -106,6 +114,25 @@ void defaultInterface()
 	
 }
 
+void playerInfo(UserData &player)
+{
+	int userInput;
+	system("CLS");
+	cout << "--- Your Data ------------------------" << endl;
+	player.checkUserName();
+	player.checkIGC();
+	cout << endl << "1. Return to choose game" << endl;
+	cout << "0. Exit" << endl;
+	cin >> userInput;
+	switch(userInput)
+	{
+		case 1: chooseGame(player);
+				break;
+		case 0: break;
+		default: break;
+	}
+}
+
 //I haven't decided the functions types
 void chooseGame (UserData &player) 
 {
@@ -119,6 +146,7 @@ void chooseGame (UserData &player)
 		cout << "1. Guess the Number " << endl;
 		cout << "2. Slots " << endl;
 		cout << "3. x game " << endl;
+		cout << "9. Player Info" << endl;
 		cout << "0. Exit game " << endl;
 		cout << "Your choice : "; cin >> userInput;
 		
@@ -130,6 +158,10 @@ void chooseGame (UserData &player)
 					  break;
 			case 3: gameX(player);
 					  break;
+			case 9: {
+						playerInfo(player);
+						break;
+					}
 			case 0: userInput = 0;
 					  break;
 			default: 
@@ -171,6 +203,7 @@ void log_In(UserData &player)
 			temporaryAllFile[i] = temp; //error here
 			i++;
 			flag = true;
+			cout << "Loading data..." << endl;
 		}
 	}
 	fileOp.close();
@@ -185,6 +218,7 @@ void log_In(UserData &player)
 	
 		player.setCounter(i+1);	
 		i+=2;
+		cout << "Creating New Username..." << endl;
 		//cout << player.getCounter() << " ";
 		//cout << i;
 	}
@@ -193,7 +227,12 @@ void log_In(UserData &player)
 	player.setUserName(userName);
 	player.setIGCurrency(igCurrency);
 	//cout << player.getIGCurrency();
-
+	
+	cout << "--- Your Data ------------------------" << endl;
+	player.checkUserName();
+	player.checkIGC();
+	cin.ignore();
+	cin.get();
 }
 
 
