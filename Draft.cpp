@@ -7,10 +7,7 @@
 //
 //
 
-
-
-
-#include "declare.h"
+#include "declare.hpp"
 
 int main()
 {
@@ -20,7 +17,6 @@ int main()
 
 	return 0;
 }
-
 
 
 

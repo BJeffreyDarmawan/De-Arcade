@@ -16,9 +16,10 @@ void gameGuessTheNumber();
 void gameSlots();
 void gameX();
 
+
 int main()
 {
-	//log_In(); //logIn system hasn't  finished
+	log_In(); //logIn system hasn't  finished
 	defaultInterface();
 	chooseGame();
 
@@ -77,25 +78,43 @@ void chooseGame ()
 void log_In()
 {
 	string userName;
-	cout << "Enter username "; cin >> userName;
+	cout << "Enter username "; 
+	cin >> userName;
 	
 	string temp;
+	string getData[999];
 	int igCurrency;
-	ifstream fileIn;
-	fileIn.open("Database.txt");
+	fstream fileOp;
+	fileOp.open("Database.txt", ios_base::in | ios_base::out | ios_base::app );
+	int i = 0;
+	bool flag = false;
 	
-	while(fileIn >> temp)
+	while(fileOp >> temp)
 	{
+		cout << temp;
+		getData[i] = temp;
+
 		if(temp == userName)
 		{
-			
-			fileIn >> igCurrency;
-			fileIn.close();
-			break;
+			fileOp >> temp;
+			igCurrency = atoi (temp.c_str());
+			getData[i] = igCurrency;
+			i++;
+			flag = true;
 		}
 	}
+	fileOp.close();
+
+	if (flag == false)
+	{
+		fileOp.open("Database.txt", ios_base::in | ios_base::out | ios_base::app);
+		fileOp << userName << "\n";
+		igCurrency = 100;
+		fileOp << igCurrency << "\n\n";
+		fileOp.close();
+	}
 	
-	
+	cout << igCurrency;
 	
 	
 /*	
@@ -224,8 +243,6 @@ void gameGuessTheNumber()
 	cout << "Congratulations, you guessed the right number! " << endl;
 	cout << "Here is your reward : " << reward << endl;
 	
-	
-		
 	
 }
 

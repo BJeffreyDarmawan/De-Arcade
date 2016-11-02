@@ -1,4 +1,4 @@
-#incude<iostream>
+#include<iostream>
 
 #include "declare.hpp"
 

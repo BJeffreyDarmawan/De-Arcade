@@ -1,6 +1,16 @@
 
 
-#include "declare.h"
+#include "declare.hpp"
+#include <iostream>
+#include <ctime>
+#include <cstdlib>
+#include <fstream>
+
+
+using namespace std;
+
+string userName;
+int userInput;
 
 void defaultInterface()
 {
@@ -58,18 +68,20 @@ void log_In()
 	cout << "Enter username "; cin >> userName;
 	
 	string temp;
+	string getData[999];
 	int igCurrency;
 	ifstream fileIn;
 	fileIn.open("Database.txt");
-	
+	int i = 0;
 	while(fileIn >> temp)
 	{
+		getData[i] = temp;
+		i++;;
 		if(temp == userName)
 		{
-			
 			fileIn >> igCurrency;
-			fileIn.close();
-			break;
+			getData[i] = igCurrency;
+			i++;
 		}
 	}
 	
