@@ -1,4 +1,4 @@
-70
+Jeff
 510
 
 Charrot
@@ -6,4 +6,49 @@ Charrot
 
 Noooo
 100
+
+NewPlayer
+100
+
+NewNewNew
+200
+
+Bla
+100
+
+Oee
+100
+
+Pleiila
+100
+
+Op
+110
+
+Om
+100
+
+OOiii
+100
+
+Oej
+100
+
+Testing
+100
+
+Kom
+100
+
+Oji
+100
+
+Ot
+100
+
+Tine
+110
+
+Blab
+110
 

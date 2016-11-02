@@ -57,16 +57,20 @@ class UserData{
 			//save game by rewriting the file
 			fstream fileOp;
 			fileOp.open("Database.txt", ios_base::in | ios_base::out);
-			
+			temporaryAllFile[counter-1] = userName;
+			temporaryAllFile[counter] = to_string(igCurrency);
+			cout << temporaryAllFile[counter] << endl;
 			for(int j = 0; j < i; j++)
 			{
-				temporaryAllFile[counter] = to_string(igCurrency);
+
 				fileOp << temporaryAllFile[j] << "\n";
 				j++;
+				cout << j << endl << counter<< endl  << i;
 				fileOp << temporaryAllFile[j] << "\n\n";
 			}
 			fileOp.close();
 		}
+	
 	
 };
 	
@@ -178,9 +182,14 @@ void log_In(UserData &player)
 		igCurrency = 100;
 		fileOp << igCurrency << "\n\n";
 		fileOp.close();
-		//player.setCounter(i=i+2);
+	
+		player.setCounter(i+1);	
+		i+=2;
+		//cout << player.getCounter() << " ";
+		//cout << i;
 	}
 	
+	//load in game currency
 	player.setUserName(userName);
 	player.setIGCurrency(igCurrency);
 	//cout << player.getIGCurrency();
