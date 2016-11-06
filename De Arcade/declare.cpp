@@ -1,111 +1,70 @@
 //
+//File where functions' body are written
 //
-//
-//
-//
-//
-//
-
-#include<iostream>
-#include<string>
-#include<fstream>
-#include<ctime>
-
-using namespace std;
+//include header file 
+#include"declare.hpp"
 
 string temporaryAllFile[999]; //stores all content of Database.txt file
 int i = 0; //total number of lines on the txt file
 
-//a class that temporarily stores the data of the player
-class UserData{
-	private:
-		string userName;
-		int counter = 0; //to mark the userName igCurrency's position on the list
-		int igCurrency=0;
+	//member functions in UserData class
+	UserData::UserData(){
+		this->userName = "";
+		this->counter = 0;
+		this->igCurrency = 0;
+		}
+	
+	void UserData::setUserName(string userName)
+	{
+		this->userName = userName;
+	}
+	void UserData::setCounter(int counter)
+	{
+		this->counter = counter;
+	}
+	void UserData::setIGCurrency(int igCurrency)
+	{
+		this->igCurrency = igCurrency;
+	}
+	
+	string UserData::getUserName()
+	{
+		return this->userName;
+	}
+	int UserData::getCounter()
+	{
+		return this->counter;
+	}
+	int UserData::getIGCurrency()
+	{
+		return this->igCurrency;
+	}
+	
+	void UserData::saveGame()
+	{
+		//save game by rewriting the file
+		fstream fileOp;
+		fileOp.open("Database.txt", ios_base::in | ios_base::out);
+		temporaryAllFile[counter-1] = userName; //in the array, userName is located before the igCurrency
+		temporaryAllFile[counter] = to_string(igCurrency);
 		
-	public:
-		PlayGame(){ //this constructor should not exist
-			this->userName = "";
-			this->counter = 0;
-			this->igCurrency = 0;
-			}
-		UserData(){ //this constructor should not exist
-			this->userName = "";
-			this->counter = 0;
-			this->igCurrency = 0;
-			}
-		void setUserName(string userName)
+		for(int j = 0; j < i; j++)
 		{
-			this->userName = userName;
+			fileOp << temporaryAllFile[j] << "\n";
+			j++;
+			fileOp << temporaryAllFile[j] << "\n\n";
 		}
-		void setCounter(int counter)
-		{
-			this->counter = counter;
-		}
-		void setIGCurrency(int igCurrency)
-		{
-			this->igCurrency = igCurrency;
-		}
-		
-		string getUserName()
-		{
-			return this->userName;
-		}
-		int getCounter()
-		{
-			return this->counter;
-		}
-		int getIGCurrency()
-		{
-			return this->igCurrency;
-		}
-		
-		void saveGame()
-		{
-			//save game by rewriting the file
-			fstream fileOp;
-			fileOp.open("Database.txt", ios_base::in | ios_base::out);
-			temporaryAllFile[counter-1] = userName; //in the array, userName is located before the igCurrency
-			temporaryAllFile[counter] = to_string(igCurrency);
-			
-			for(int j = 0; j < i; j++)
-			{
-				fileOp << temporaryAllFile[j] << "\n";
-				j++;
-				fileOp << temporaryAllFile[j] << "\n\n";
-			}
-			fileOp.close();
-		}
-		void checkIGC()
-		{
-			cout << "In-game currency balance: " << igCurrency << endl;
-		}
-		void checkUserName()
-		{
-			cout << "UserName: " << userName << endl;
-		}
-	
-};
-	
-	void log_In(UserData &);
-	void defaultInterface();
-	void chooseGame(UserData &);
-	void gameGuessTheNumber(UserData &);
-	void gameSlots(UserData &);
-	void gameHorseRace(UserData &);
-	void topUpCredits(UserData &);
-	
-int main()
-{	
-	UserData player;
-	
-	log_In(player); 
-	
-	chooseGame(player);
-
-	return 0;
-}
-
+		fileOp.close();
+	}
+	void UserData::checkIGC()
+	{
+		cout << "In-game currency balance: " << igCurrency << endl;
+	}
+	void UserData::checkUserName()
+	{
+		cout << "UserName: " << userName << endl;
+	}
+//global functions
 void defaultInterface()
 {
 	cout << "--------Welcome to DE ARCADE---------" << endl;
@@ -114,7 +73,6 @@ void defaultInterface()
 	cout << "This game is made by Jeffrey Darmawan" << endl;
 	cout << "-------------------------------------" << endl;
 	cout << endl;
-	
 }
 
 void playerInfo(UserData &player)
@@ -148,7 +106,7 @@ void chooseGame (UserData &player)
 		cout << "Please choose one of the following games: " << endl;
 		cout << "1. Guess the Number " << endl;
 		cout << "2. Slots " << endl;
-		cout << "3. x game " << endl;
+		cout << "3. Horse Race Betting " << endl;
 		cout << "8. Top Up Credits" << endl;
 		cout << "9. Player Info" << endl;
 		cout << "0. Exit game " << endl;
@@ -243,6 +201,10 @@ void log_In(UserData &player)
 
 void gameGuessTheNumber(UserData &player)
 {
+	system("CLS");
+	cout << "---------------------------------------" << endl;
+	cout << "---------- Guess the Number -----------" << endl;
+	cout << "---------------------------------------" << endl;
 	try{
 		//declaration of necessary variables
 		srand(time(NULL));
@@ -378,6 +340,10 @@ void gameGuessTheNumber(UserData &player)
 
 void gameSlots(UserData &player)
 {
+	system("CLS");
+	cout << "----------------------------------------" << endl;
+	cout << "---------------- SLOTS -----------------" << endl;
+	cout << "----------------------------------------" << endl;
 	srand(time(NULL));
 	int slot[3] = {rand() % 100, rand() % 100, rand() % 100};
 	int result[3];
@@ -484,8 +450,12 @@ void gameSlots(UserData &player)
 
 void gameHorseRace(UserData &player)
 {
+	system("CLS");
+	cout << "---------------------------------------" << endl;
+	cout << "--------- Horse Race Betting ----------" << endl;
+	cout << "---------------------------------------" << endl;
 	int numHorses, input, multiplier;
-	bool flag;
+	bool flag = 0;
 	
 	cout << "Welcome to the Fast-Forwarded Horcerace betting!"<< endl;
 	cout << "There are 10 horses out there and you are allowed to bet at the maximum of 3 horses" << endl <<
