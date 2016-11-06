@@ -8,6 +8,7 @@ Updates : </br>
 10 / 28 / 2016 : Added game 2 and game 3; </br>
 11 /  3 / 2016 : LogIn system running; Improved project to use class </br>
 
+NOTE: main file is now 'this is the file.cpp'
 I created a new file because I made major changes when implementing class </br>
 
 Problems:</br>
