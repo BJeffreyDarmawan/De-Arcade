@@ -2,7 +2,7 @@
 Yay, Arcade!
 
 Updates : </br>
-11 /  6 / 2016 : Final Project Last Update
+11 /  6 / 2016 : Final Project Last Update </br>
 11 /  3 / 2016 : LogIn system running; Improved project to use class </br>
 10 / 28 / 2016 : Added game 2 and game 3; </br>
 10 / 21 / 2016 : Can play game 1, but still need imporovement; Using header file </br>
